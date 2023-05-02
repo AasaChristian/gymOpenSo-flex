@@ -1,18 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {Route, Switch} from "react-router-dom";
 import { actionCreator } from './Actions/Actions';
+import PrivateRoute from './Components/Authintications/PrivateRoute';
 
-class App extends React.Component {
-  render() {
+function App()  {
+  
     return (
       <div>
-        <h1>React-Redux App</h1>
+<Switch>
+  <PrivateRoute
+    exact path="/private"
+  />
 
-        <p>{this.props.message}</p>
+<Route exact path= '/login'
+      render={props => <Login {...props}  axiosAddress={axiosAddress} />}
+      />
+</Switch>
       </div>
     );
   }
-}
 
 const mapStateToProps = state => ({
   message: state.message
