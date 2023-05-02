@@ -7,9 +7,7 @@ class App extends React.Component {
     return (
       <div>
         <h1>React-Redux App</h1>
-        <button onClick={() => this.props.dispatch(actionCreator('Hello, Redux!'))}>
-          Click me!
-        </button>
+
         <p>{this.props.message}</p>
       </div>
     );
